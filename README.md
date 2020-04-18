@@ -48,28 +48,40 @@ $ go build net-monitor.go
 ```
 ## How to use
 
-```net-monitor -community [community] -host [host] -port [snmp_port] -interval [interval]```
+```net-monitor -bucket [my-influxdb-bucket] -org [my-influxdb-organization] -token [influxdb-auth-token]```
 
 Default values:
+ - host: `localhost`
  - community: `public`
- - host: `127.0.0.1`
- - port: `161`
- - interval: `5s`
+ - snmpPort: `161`
+ - influxUrl: `http://localhost`
+ - influxPort: `9999`
+ - interval: `2s`
 
 ## Options
 
 Type `$ net-monitor -help`
 
 ```
-Usage: net-monitor [options]
+Usage: sys-status [options]
+  -bucket string
+        bucket string for telegraf
   -community string
         community string for snmp (default "public")
   -host string
-        hostname or ip address (default "localhost")
+        hostnameSnmp or ip address (default "localhost")
+  -influxPort uint
+        influxPort number (default 9999)
+  -influxUrl string
+        influx url (default "http://localhost")
   -interval string
-        interval in seconds before send another snmp request (default "5s")
-  -port uint
-        port number (default 161)
+        interval in seconds before send another snmp request (default "2s")
+  -org string
+        organization string for telegraf
+  -snmpPort uint
+        snmp port number (default 161)
+  -token string
+        auth token for influxdb
   -version
         output version
 ```
