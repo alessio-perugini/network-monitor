@@ -89,6 +89,25 @@ Usage: sys-status [options]
 ## Dependencies
 
 [gosnmp](https://github.com/soniah/gosnmp) used for snmp requests
+
 ```
 go get github.com/soniah/gosnmp
-```# network-monitor
+```
+
+[influxdb-client](https://github.com/influxdata/influxdb-client-go) used for influxdb request
+
+```
+github.com/influxdata/influxdb-client-go
+```
+
+## Create InfluxDB DashBoard
+
+1. In the navigation menu on the left, select **Boards** (**Dashboards**).
+
+![dashboard](doc/img/dash-button.png)
+
+2. Click the **Create Dashboard** menu in the upper right and select **New Dashboard.**
+
+3. Enter a name for your dashboard in the **Name this dashboard** field in the upper left.
+
+Note: more info at [influxdb-doc](https://v2.docs.influxdata.com/v2.0/visualize-data/dashboards/) official doc
