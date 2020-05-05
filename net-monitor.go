@@ -59,7 +59,7 @@ func init() {
 	flag.StringVar(&organization, "org", "", "organization string for telegraf")
 	flag.StringVar(&influxAuthToken, "token", "", "auth token for influxdb")
 
-	flag.StringVar(&interval, "interval", "2s", "interval in seconds before send another snmp request")
+	flag.StringVar(&interval, "interval", "3s", "interval in seconds before send another snmp request")
 	flag.BoolVar(&versionFlag, "version", false, "output version")
 }
 
@@ -87,6 +87,7 @@ func main() {
 	defer client.Close()
 	writeApi := client.WriteApi(organization, bucket) //non-blocking
 
+	//Catch sig-term
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt)
 	go func() {
